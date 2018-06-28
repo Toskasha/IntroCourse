@@ -10,6 +10,8 @@ public class Gun : MonoBehaviour {
 
     private float SetFireDelay;
 
+    
+
     public GameObject bulletPrefab;
 
     public void Fire()
@@ -19,6 +21,10 @@ public class Gun : MonoBehaviour {
             GameObject TempBullet = Instantiate(bulletPrefab, transform.position, transform.rotation);
 
             TempBullet.GetComponent<Rigidbody>().velocity = transform.forward * 100;
+
+            TempBullet.GetComponent<BulletControl>().owner = gameObject;
+
+            Destroy(TempBullet, 5);
 
             SetFireDelay = FireRate;
             Mag--;
