@@ -12,7 +12,11 @@ public class BulletControl : MonoBehaviour {
     {
         if (other.gameObject != owner)
         {
-            other.gameObject.GetComponent<DamScript>().TakeDamage(DamageAmount);
+            if (other.gameObject.GetComponent<DamScript>())
+            {
+                other.gameObject.GetComponent<DamScript>().TakeDamage(DamageAmount);
+            }
+
             Destroy(gameObject);
         }
     }
