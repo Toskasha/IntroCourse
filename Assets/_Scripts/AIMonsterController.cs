@@ -9,7 +9,7 @@ public class AIMonsterController : MonoBehaviour {
     public float MovementSpeed;
     public float AttackRadius;
     public float AttackCooldown;
-    private float SetAttackCooldown;
+    public float SetAttackCooldown;
 
     public GameObject Target;
 

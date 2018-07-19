@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class DamScript : MonoBehaviour {
 
     private float CurrentHealth;
@@ -13,19 +13,13 @@ public class DamScript : MonoBehaviour {
     public float DamTimer;
     private float CurrentDamTimer;
 
+    public Image HealthBar;
     
-    
-
-        
-        
-
-        
-
     
 
 	// Use this for initialization
 	void Start () {
-		
+        CurrentHealth = MaxHealth;
 	}
 
     public void TakeDamage(float DamageAmount)
@@ -53,5 +47,10 @@ public class DamScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         if (Input.GetKeyDown(KeyCode.Space)) { TakeDamage(10); }
+
+        if(HealthBar != null)
+        {
+            HealthBar.fillAmount = CurrentHealth / MaxHealth;
+        }
 	}
 }
